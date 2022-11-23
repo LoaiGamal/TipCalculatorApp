@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/storeImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textLayout"
+            app:layout_constraintBottom_toBottomOf="@id/textLayout"
+            android:layout_margin="3dp"
+            app:srcCompat="@drawable/ic_store"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textLayout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:hint="@string/cost_of_service"
+            app:layout_constraintStart_toEndOf="@id/storeImg"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/costET"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="#757575"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/serviceIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/questionTV"
+            app:layout_constraintBottom_toBottomOf="@id/questionTV"
+            android:layout_marginStart="3dp"
+            app:srcCompat="@drawable/ic_service"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/how_was_the_service"
+            style="@style/Widget.TipTime.TextView"
+            android:layout_margin="5dp"
+            app:layout_constraintStart_toEndOf="@id/serviceIcon"
+            app:layout_constraintTop_toBottomOf="@id/textLayout" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:soundEffectsEnabled="true"
+            android:splitMotionEvents="true"
+            app:layout_constraintStart_toStartOf="@id/questionTV"
+            app:layout_constraintTop_toBottomOf="@id/questionTV"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/optionTwentyPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amazing_20"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/optionEighteenPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/good_18"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/optionFifteenPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/okay_15"
+                android:textSize="20sp"/>
+
+        </RadioGroup>
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/roundIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/roundSwitch"
+            app:layout_constraintBottom_toBottomOf="@id/roundSwitch"
+            app:srcCompat="@drawable/ic_round"
+            android:layout_marginStart="3dp"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/roundSwitch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup"
+            app:layout_constraintStart_toEndOf="@id/roundIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="7dp"
+            android:text="@string/round_up_tip"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/calculateBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:text="@string/calculate"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/roundSwitch"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tipAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/tip_amount"
+            android:textColor="#000000"
+            style="@style/Widget.TipTime.TextView"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calculateBTN" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="@id/tipAmount"
+            app:layout_constraintStart_toStartOf="@id/tipAmount"
+            app:layout_constraintTop_toBottomOf="@id/tipAmount"
+            tools:text="14" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
